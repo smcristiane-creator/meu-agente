@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 # ---------- CONFIGURAÇÃO ----------
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash")  # confira o nome atual no Google AI Studio
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")  # confira o nome atual no Google AI Studio
 TG_TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
 TG_CHAT = str(os.environ.get("TELEGRAM_CHAT_ID", ""))
 IG_USER_ID = os.environ.get("IG_USER_ID", "")
