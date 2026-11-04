@@ -122,8 +122,13 @@ def gerar_conteudo(noticias, historico):
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.8},
     }
     ultimo_erro = None
-    for tentativa in range(3):
-        r = requests.post(url, json=corpo, timeout=90)
+      for tentativa in range(3):
+        try:
+            r = requests.post(url, json=corpo, timeout=180)
+        except requests.exceptions.RequestException as e:
+            ultimo_erro = str(e)
+            time.sleep(15)
+            continue
         if r.ok:
             texto = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             texto = texto.strip().removeprefix("```json").removesuffix("```").strip()
