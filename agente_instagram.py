@@ -122,7 +122,7 @@ def gerar_conteudo(noticias, historico):
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.8},
     }
     ultimo_erro = None
-    for tentativa in range(3):
+    for tentativa in range(6):
         try:
             r = requests.post(url, json=corpo, timeout=180)
             if r.ok:
@@ -136,7 +136,7 @@ def gerar_conteudo(noticias, historico):
                 ultimo_erro = r.text
         except Exception as e:
             ultimo_erro = str(e)
-        time.sleep(15)
+        time.sleep(40)
     raise RuntimeError(f"Falha ao gerar conteúdo: {ultimo_erro}")
 
 
